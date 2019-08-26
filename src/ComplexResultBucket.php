@@ -10,19 +10,11 @@ final class ComplexResultBucket implements
     AcceptanceResultBucketInterface,
     RejectionResultBucketInterface
 {
-    /**
-     * @var RejectionResultBucketInterface[]
-     */
+    /** @var RejectionResultBucketInterface[] */
     private $rejections;
-
-    /**
-     * @var AcceptanceResultBucketInterface[]
-     */
+    /** @var AcceptanceResultBucketInterface[] */
     private $acceptances;
 
-    /**
-     * @param ResultBucketInterface[] $buckets
-     */
     public function __construct(ResultBucketInterface... $buckets)
     {
         $this->acceptances = array_filter(
@@ -56,12 +48,13 @@ final class ComplexResultBucket implements
         foreach ($this->acceptances as $child) {
             /** @var array|\Traversable $acceptance */
             $acceptance = $child->walkAcceptance();
-            if (is_array($acceptance)) {
+            if ($acceptance instanceof \Iterator) {
+                $iterator->append($acceptance);
+            } else if (is_array($acceptance)) {
                 $iterator->append(new \ArrayIterator($acceptance));
-                continue;
+            } else {
+                $iterator->append(new \IteratorIterator($acceptance));
             }
-
-            $iterator->append(new \IteratorIterator($acceptance));
         }
 
         return $iterator;
@@ -73,12 +66,13 @@ final class ComplexResultBucket implements
         foreach ($this->rejections as $child) {
             /** @var array|\Traversable $rejection */
             $rejection = $child->walkRejection();
-            if (is_array($rejection)) {
+            if ($rejection instanceof \Iterator) {
+                $iterator->append($rejection);
+            } else if (is_array($rejection)) {
                 $iterator->append(new \ArrayIterator($rejection));
-                continue;
+            } else {
+                $iterator->append(new \IteratorIterator($rejection));
             }
-
-            $iterator->append(new \IteratorIterator($rejection));
         }
 
         return $iterator;

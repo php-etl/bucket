@@ -6,14 +6,9 @@ use Kiboko\Component\ETL\Contracts\RejectionResultBucketInterface;
 
 final class RejectionAppendableResultBucket implements RejectionResultBucketInterface
 {
-    /**
-     * @var \Iterator
-     */
+    /** @var \AppendIterator */
     private $iterator;
 
-    /**
-     * @param \Iterator ...$iterators
-     */
     public function __construct(\Iterator ...$iterators)
     {
         $this->iterator = new \AppendIterator();
@@ -22,9 +17,6 @@ final class RejectionAppendableResultBucket implements RejectionResultBucketInte
         }
     }
 
-    /**
-     * @param \Iterator ...$iterators
-     */
     public function append(\Iterator ...$iterators)
     {
         foreach ($iterators as $iterator){

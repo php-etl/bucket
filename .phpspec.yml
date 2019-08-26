@@ -1,5 +1,0 @@
-suites:
-  acme_suite:
-    namespace: Kiboko\Component\ETL\Bucket
-    psr4_prefix: Kiboko\Component\ETL\Bucket
-    src_path: '%paths.config%'

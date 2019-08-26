@@ -6,9 +6,7 @@ use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
 
 final class AcceptanceIteratorResultBucket implements AcceptanceResultBucketInterface
 {
-    /**
-     * @var \Iterator
-     */
+    /** @var \Iterator */
     private $iterator;
 
     /**

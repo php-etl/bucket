@@ -6,13 +6,11 @@ use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
 
 final class AcceptanceResultBucket implements AcceptanceResultBucketInterface
 {
-    /**
-     * @var array
-     */
+    /** @var array<int, mixed> */
     private $values;
 
     /**
-     * @param mixed[] $values
+     * @param array<int, mixed> $values
      */
     public function __construct(...$values)
     {

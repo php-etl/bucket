@@ -33,10 +33,54 @@ class ComplexResultBucketSpec extends ObjectBehavior
             ),
             new AcceptanceResultBucket(
                 new \stdClass()
-            )
+            ),
+            new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
+                public function walkAcceptance(): iterable
+                {
+                    return [
+                        new \stdClass(),
+                        new \stdClass()
+                    ];
+                }
+
+                public function walkRejection(): iterable
+                {
+                    return [
+                        new \stdClass(),
+                        new \stdClass()
+                    ];
+                }
+            },
+            new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
+                public function walkAcceptance(): iterable
+                {
+                    return new class implements \IteratorAggregate {
+                        public function getIterator()
+                        {
+                            yield from [
+                                new \stdClass(),
+                                new \stdClass()
+                            ];
+                        }
+                    };
+                }
+
+                public function walkRejection(): iterable
+                {
+                    return new class implements \IteratorAggregate {
+                        public function getIterator()
+                        {
+                            yield from [
+                                new \stdClass(),
+                                new \stdClass()
+                            ];
+                        }
+                    };
+                }
+            }
         );
 
-        $this->walkAcceptance()->shouldHaveCount(3);
+        $this->walkAcceptance()->shouldHaveCount(7);
     }
 
     function it_has_non_empty_rejection()
@@ -53,10 +97,54 @@ class ComplexResultBucketSpec extends ObjectBehavior
             ),
             new RejectionResultBucket(
                 new \stdClass()
-            )
+            ),
+            new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
+                public function walkAcceptance(): iterable
+                {
+                    return [
+                        new \stdClass(),
+                        new \stdClass()
+                    ];
+                }
+
+                public function walkRejection(): iterable
+                {
+                    return [
+                        new \stdClass(),
+                        new \stdClass()
+                    ];
+                }
+            },
+            new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
+                public function walkAcceptance(): iterable
+                {
+                    return new class implements \IteratorAggregate {
+                        public function getIterator()
+                        {
+                            yield from [
+                                new \stdClass(),
+                                new \stdClass()
+                            ];
+                        }
+                    };
+                }
+
+                public function walkRejection(): iterable
+                {
+                    return new class implements \IteratorAggregate {
+                        public function getIterator()
+                        {
+                            yield from [
+                                new \stdClass(),
+                                new \stdClass()
+                            ];
+                        }
+                    };
+                }
+            }
         );
 
-        $this->walkRejection()->shouldHaveCount(3);
+        $this->walkRejection()->shouldHaveCount(7);
     }
 
     function it_can_accept_values()
