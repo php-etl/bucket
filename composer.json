@@ -15,8 +15,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.1",
-        "php-etl/contracts": "1.0.x-dev"
+        "php": "^8.0",
+        "php-etl/bucket-contracts": "^0.1.0@dev"
     },
     "autoload": {
         "psr-4": {
@@ -25,13 +25,12 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-master": "0.1.x-dev"
         }
     },
     "require-dev": {
-        "phpspec/phpspec": "^5.1",
-        "infection/infection": "dev-master",
-        "drupol/phpspec-code-coverage": "^4.0@dev",
-        "phpstan/phpstan": "^0.12.0@dev"
+        "phpspec/phpspec": "^7.0",
+        "friends-of-phpspec/phpspec-code-coverage": "6.x-dev",
+        "phpstan/phpstan": "^0.12"
     }
 }
