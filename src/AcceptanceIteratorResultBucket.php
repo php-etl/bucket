@@ -1,8 +1,8 @@
 <?php
 
-namespace Kiboko\Component\ETL\Bucket;
+namespace Kiboko\Component\Bucket;
 
-use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
+use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
 
 final class AcceptanceIteratorResultBucket implements AcceptanceResultBucketInterface
 {

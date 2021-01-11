@@ -1,8 +1,8 @@
 <?php
 
-namespace Kiboko\Component\ETL\Bucket;
+namespace Kiboko\Component\Bucket;
 
-use Kiboko\Component\ETL\Contracts\RejectionResultBucketInterface;
+use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
 
 final class RejectionAppendableResultBucket implements RejectionResultBucketInterface
 {

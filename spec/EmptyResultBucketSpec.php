@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Kiboko\Component\ETL\Bucket;
+namespace spec\Kiboko\Component\Bucket;
 
-use Kiboko\Component\ETL\Bucket\EmptyresultBucket;
-use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
-use Kiboko\Component\ETL\Contracts\RejectionResultBucketInterface;
+use Kiboko\Component\Bucket\EmptyresultBucket;
+use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 

@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Kiboko\\Component\\ETL\\Bucket\\": "src/"
+            "Kiboko\\Component\\Bucket\\": "src/"
         }
     },
     "extra": {

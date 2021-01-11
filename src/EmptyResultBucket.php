@@ -1,9 +1,9 @@
 <?php
 
-namespace Kiboko\Component\ETL\Bucket;
+namespace Kiboko\Component\Bucket;
 
-use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
-use Kiboko\Component\ETL\Contracts\RejectionResultBucketInterface;
+use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
 
 final class EmptyResultBucket implements
     AcceptanceResultBucketInterface,

@@ -16,6 +16,6 @@ formatter.name: pretty
 stop_on_failure: true
 suites:
   bucket_suite:
-    namespace: Kiboko\Component\ETL\Bucket
-    psr4_prefix: Kiboko\Component\ETL\Bucket
+    namespace: Kiboko\Component\Bucket
+    psr4_prefix: Kiboko\Component\Bucket
     src_path: '%paths.config%'

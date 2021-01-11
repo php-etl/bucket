@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Kiboko\Component\ETL\Bucket;
+namespace spec\Kiboko\Component\Bucket;
 
-use Kiboko\Component\ETL\Bucket\AcceptanceIteratorResultBucket;
-use Kiboko\Component\ETL\Contracts\AcceptanceResultBucketInterface;
+use Kiboko\Component\Bucket\AcceptanceIteratorResultBucket;
+use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
