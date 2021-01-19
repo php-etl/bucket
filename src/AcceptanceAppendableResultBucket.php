@@ -12,14 +12,14 @@ final class AcceptanceAppendableResultBucket implements AcceptanceResultBucketIn
     public function __construct(\Iterator ...$iterators)
     {
         $this->iterator = new \AppendIterator();
-        foreach ($iterators as $iterator){
+        foreach ($iterators as $iterator) {
             $this->iterator->append($iterator);
         }
     }
 
     public function append(\Iterator ...$iterators)
     {
-        foreach ($iterators as $iterator){
+        foreach ($iterators as $iterator) {
             $this->iterator->append($iterator);
         }
     }

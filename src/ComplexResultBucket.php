@@ -50,7 +50,7 @@ final class ComplexResultBucket implements
             $acceptance = $child->walkAcceptance();
             if ($acceptance instanceof \Iterator) {
                 $iterator->append($acceptance);
-            } else if (is_array($acceptance)) {
+            } elseif (is_array($acceptance)) {
                 $iterator->append(new \ArrayIterator($acceptance));
             } else {
                 $iterator->append(new \IteratorIterator($acceptance));
@@ -68,7 +68,7 @@ final class ComplexResultBucket implements
             $rejection = $child->walkRejection();
             if ($rejection instanceof \Iterator) {
                 $iterator->append($rejection);
-            } else if (is_array($rejection)) {
+            } elseif (is_array($rejection)) {
                 $iterator->append(new \ArrayIterator($rejection));
             } else {
                 $iterator->append(new \IteratorIterator($rejection));
