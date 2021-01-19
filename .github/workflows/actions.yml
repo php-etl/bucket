@@ -39,6 +39,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             -   uses: actions/checkout@v2
+            -   uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.0'
+                    tools: composer:v2
             -   uses: actions/cache@v2
                 with:
                     path: '**/vendor'
@@ -54,4 +58,3 @@ jobs:
                 uses: php-actions/phpspec@master
                 with:
                     config: phpspec.yml
-                    php_version: 8.0
