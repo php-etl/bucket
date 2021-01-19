@@ -43,9 +43,8 @@ jobs:
                 with:
                     args: --prefer-dist
                     php_version: 8.0
-
+            -   run: php -v
             -   name: PHP Spec
-                run: php -v
                 uses: php-actions/phpspec@master
                 with:
                     config: phpspec.yml
