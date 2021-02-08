@@ -31,5 +31,8 @@
     "require-dev": {
         "phpspec/phpspec": "^7.0",
         "friends-of-phpspec/phpspec-code-coverage": "6.x-dev"
+    },
+    "config": {
+        "bin-dir": "bin"
     }
 }
