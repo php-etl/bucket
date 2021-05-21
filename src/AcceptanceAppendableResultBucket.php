@@ -1,31 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+trigger_deprecation('php-etl/bucket', '0.2', 'The "%s" class is deprecated, use "%s" instead.', 'Kiboko\\Component\\Bucket\\AcceptanceAppendableResultBucket', AppendableIteratorAcceptanceResultBucket::class);
 
-final class AcceptanceAppendableResultBucket implements AcceptanceResultBucketInterface
-{
-    /** @var \AppendIterator */
-    private $iterator;
-
-    public function __construct(\Iterator ...$iterators)
-    {
-        $this->iterator = new \AppendIterator();
-        foreach ($iterators as $iterator) {
-            $this->iterator->append($iterator);
-        }
-    }
-
-    public function append(\Iterator ...$iterators)
-    {
-        foreach ($iterators as $iterator) {
-            $this->iterator->append($iterator);
-        }
-    }
-
-    public function walkAcceptance(): iterable
-    {
-        return $this->iterator;
-    }
-}
+/**
+ * @deprecated since Satellite 0.2, use Kiboko\Component\Bucket\AppendableIteratorAcceptanceResultBucket instead.
+ */
+class_alias(AppendableIteratorAcceptanceResultBucket::class, 'Kiboko\\Component\\Bucket\\AcceptanceAppendableResultBucket');

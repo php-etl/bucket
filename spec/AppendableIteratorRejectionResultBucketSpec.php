@@ -2,20 +2,20 @@
 
 namespace spec\Kiboko\Component\Bucket;
 
-use Kiboko\Component\Bucket\AcceptanceAppendableResultBucket;
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+use Kiboko\Component\Bucket\AppendableIteratorRejectionResultBucket;
+use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class AcceptanceAppendableResultBucketSpec extends ObjectBehavior
+class AppendableIteratorRejectionResultBucketSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->shouldHaveType(AcceptanceAppendableResultBucket::class);
-        $this->shouldBeAnInstanceOf(AcceptanceResultBucketInterface::class);
+        $this->shouldHaveType(AppendableIteratorRejectionResultBucket::class);
+        $this->shouldBeAnInstanceOf(RejectionResultBucketInterface::class);
     }
 
-    function it_has_non_empty_acceptance()
+    function it_has_non_empty_rejection()
     {
         $this->beConstructedWith(
             new \ArrayIterator([
@@ -25,10 +25,10 @@ class AcceptanceAppendableResultBucketSpec extends ObjectBehavior
             ])
         );
 
-        $this->walkAcceptance()->shouldHaveCount(3);
+        $this->walkRejection()->shouldHaveCount(3);
     }
 
-    function it_can_append_acceptance()
+    function it_can_append_rejection()
     {
         $this->beConstructedWith(
             new \EmptyIterator()
@@ -47,6 +47,6 @@ class AcceptanceAppendableResultBucketSpec extends ObjectBehavior
             ])
         );
 
-        $this->walkAcceptance()->shouldHaveCount(3);
+        $this->walkRejection()->shouldHaveCount(3);
     }
 }

@@ -2,18 +2,18 @@
 
 namespace spec\Kiboko\Component\Bucket;
 
-use Kiboko\Component\Bucket\RejectionIteratorResultBucket;
+use Kiboko\Component\Bucket\IteratorRejectionResultBucket;
 use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class RejectionIteratorResultBucketSpec extends ObjectBehavior
+class IteratorRejectionResultBucketSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
         $this->beConstructedWith(new \EmptyIterator());
 
-        $this->shouldHaveType(RejectionIteratorResultBucket::class);
+        $this->shouldHaveType(IteratorRejectionResultBucket::class);
         $this->shouldBeAnInstanceOf(RejectionResultBucketInterface::class);
     }
 

@@ -2,18 +2,18 @@
 
 namespace spec\Kiboko\Component\Bucket;
 
-use Kiboko\Component\Bucket\AcceptanceIteratorResultBucket;
+use Kiboko\Component\Bucket\IteratorAcceptanceResultBucket;
 use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
 use PhpSpec\ObjectBehavior;
 use Prophecy\Argument;
 
-class AcceptanceIteratorResultBucketSpec extends ObjectBehavior
+class IteratorAcceptanceResultBucketSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
         $this->beConstructedWith(new \EmptyIterator());
 
-        $this->shouldHaveType(AcceptanceIteratorResultBucket::class);
+        $this->shouldHaveType(IteratorAcceptanceResultBucket::class);
         $this->shouldBeAnInstanceOf(AcceptanceResultBucketInterface::class);
     }
 

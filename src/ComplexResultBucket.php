@@ -10,10 +10,10 @@ final class ComplexResultBucket implements
     AcceptanceResultBucketInterface,
     RejectionResultBucketInterface
 {
-    /** @var RejectionResultBucketInterface[] */
-    private $rejections;
     /** @var AcceptanceResultBucketInterface[] */
     private $acceptances;
+    /** @var RejectionResultBucketInterface[] */
+    private $rejections;
 
     public function __construct(ResultBucketInterface... $buckets)
     {
