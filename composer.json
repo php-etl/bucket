@@ -14,6 +14,7 @@
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "php": "^8.0",
         "php-etl/bucket-contracts": "^0.1.0@dev"

@@ -2,12 +2,18 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
-final class AppendableIteratorRejectionResultBucket implements RejectionResultBucketInterface
+/**
+ * @template Type
+ * @implements Contract\RejectionResultBucketInterface<Type>
+ */
+final class AppendableIteratorRejectionResultBucket implements Contract\RejectionResultBucketInterface
 {
-    private iterable $iterator;
+    /** @var \AppendIterator<Type>  */
+    private \AppendIterator $iterator;
 
+    /** @param \Iterator<Contract\RejectionResultBucketInterface<Type>> ...$iterators */
     public function __construct(\Iterator ...$iterators)
     {
         $this->iterator = new \AppendIterator();
@@ -16,13 +22,15 @@ final class AppendableIteratorRejectionResultBucket implements RejectionResultBu
         }
     }
 
-    public function append(\Iterator ...$iterators)
+    /** @param \Iterator<Contract\RejectionResultBucketInterface<Type>> ...$iterators */
+    public function append(\Iterator ...$iterators): void
     {
         foreach ($iterators as $iterator) {
             $this->iterator->append($iterator);
         }
     }
 
+    /** @return iterable<Type> */
     public function walkRejection(): iterable
     {
         return $this->iterator;

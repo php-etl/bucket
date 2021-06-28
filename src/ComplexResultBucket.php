@@ -2,41 +2,47 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
-use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
-use Kiboko\Contract\Bucket\ResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
+/**
+ * @template Type
+ * @implements Contract\AcceptanceResultBucketInterface<Type>
+ * @implements Contract\RejectionResultBucketInterface<Type>
+ */
 final class ComplexResultBucket implements
-    AcceptanceResultBucketInterface,
-    RejectionResultBucketInterface
+    Contract\AcceptanceResultBucketInterface,
+    Contract\RejectionResultBucketInterface
 {
-    /** @var AcceptanceResultBucketInterface[] */
-    private $acceptances;
-    /** @var RejectionResultBucketInterface[] */
-    private $rejections;
+    /** @var array<Contract\AcceptanceResultBucketInterface<Type>> */
+    private array $acceptances;
+    /** @var array<Contract\RejectionResultBucketInterface<Type>> */
+    private array $rejections;
 
-    public function __construct(ResultBucketInterface... $buckets)
+    /** @param Contract\AcceptanceResultBucketInterface<Type>|Contract\RejectionResultBucketInterface<Type> ...$buckets */
+    public function __construct(Contract\AcceptanceResultBucketInterface|Contract\RejectionResultBucketInterface... $buckets)
     {
         $this->acceptances = array_filter(
             $buckets,
-            function (ResultBucketInterface $bucket) {
-                return $bucket instanceof AcceptanceResultBucketInterface;
+            function (Contract\ResultBucketInterface $bucket) {
+                return $bucket instanceof Contract\AcceptanceResultBucketInterface;
             }
         );
 
         $this->rejections = array_filter(
             $buckets,
-            function (ResultBucketInterface $bucket) {
-                return $bucket instanceof RejectionResultBucketInterface;
+            function (Contract\ResultBucketInterface $bucket) {
+                return $bucket instanceof Contract\RejectionResultBucketInterface;
             }
         );
     }
 
+    /** @param Type ...$values */
     public function accept(...$values): void
     {
         $this->acceptances[] = new AcceptanceResultBucket(...$values);
     }
 
+    /** @param Type ...$values */
     public function reject(...$values): void
     {
         $this->rejections[] = new RejectionResultBucket(...$values);
@@ -46,7 +52,7 @@ final class ComplexResultBucket implements
     {
         $iterator = new \AppendIterator();
         foreach ($this->acceptances as $child) {
-            /** @var array|\Traversable $acceptance */
+            /** @var array<Type>|\Traversable<Type> $acceptance */
             $acceptance = $child->walkAcceptance();
             if ($acceptance instanceof \Iterator) {
                 $iterator->append($acceptance);
@@ -64,7 +70,7 @@ final class ComplexResultBucket implements
     {
         $iterator = new \AppendIterator();
         foreach ($this->rejections as $child) {
-            /** @var array|\Traversable $rejection */
+            /** @var array<Type>|\Traversable<Type> $rejection */
             $rejection = $child->walkRejection();
             if ($rejection instanceof \Iterator) {
                 $iterator->append($rejection);

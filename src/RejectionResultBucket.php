@@ -2,23 +2,26 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
-final class RejectionResultBucket implements RejectionResultBucketInterface
+/**
+ * @template Type
+ * @implements Contract\RejectionResultBucketInterface<Type>
+ */
+final class RejectionResultBucket implements Contract\RejectionResultBucketInterface
 {
-    /** @var array<mixed> */
-    private iterable $values;
+    /** @var array<int, Type> */
+    private array $values;
 
-    /**
-     * @param array<mixed> $values
-     */
+    /** @param Type ...$values */
     public function __construct(...$values)
     {
         $this->values = $values;
     }
 
     /**
-     * @param array<mixed> $values
+     * @param Type ...$values
+     * @return RejectionResultBucket<Type>
      */
     public function reject(...$values): self
     {
@@ -27,6 +30,7 @@ final class RejectionResultBucket implements RejectionResultBucketInterface
         return $this;
     }
 
+    /** @return iterable<Type> */
     public function walkRejection(): iterable
     {
         return new \ArrayIterator($this->values);

@@ -2,12 +2,18 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
-final class AppendableIteratorAcceptanceResultBucket implements AcceptanceResultBucketInterface
+/**
+ * @template Type
+ * @implements Contract\AcceptanceResultBucketInterface<Type>
+ */
+final class AppendableIteratorAcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
 {
-    private iterable $iterator;
+    /** @var \AppendIterator<Type>  */
+    private \AppendIterator $iterator;
 
+    /** @param \Iterator<Contract\AcceptanceResultBucketInterface<Type>> ...$iterators */
     public function __construct(\Iterator ...$iterators)
     {
         $this->iterator = new \AppendIterator();
@@ -16,13 +22,15 @@ final class AppendableIteratorAcceptanceResultBucket implements AcceptanceResult
         }
     }
 
-    public function append(\Iterator ...$iterators)
+    /** @param \Iterator<Contract\AcceptanceResultBucketInterface<Type>> ...$iterators */
+    public function append(\Iterator ...$iterators): void
     {
         foreach ($iterators as $iterator) {
             $this->iterator->append($iterator);
         }
     }
 
+    /** @return iterable<Type> */
     public function walkAcceptance(): iterable
     {
         return $this->iterator;

@@ -2,12 +2,16 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
-use Kiboko\Contract\Bucket\RejectionResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
+/**
+ * @template Type
+ * @implements Contract\AcceptanceResultBucketInterface<Type>
+ * @implements Contract\RejectionResultBucketInterface<Type>
+ */
 final class EmptyResultBucket implements
-    AcceptanceResultBucketInterface,
-    RejectionResultBucketInterface
+    Contract\AcceptanceResultBucketInterface,
+    Contract\RejectionResultBucketInterface
 {
     public function walkAcceptance(): iterable
     {

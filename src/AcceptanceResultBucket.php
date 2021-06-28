@@ -2,23 +2,26 @@
 
 namespace Kiboko\Component\Bucket;
 
-use Kiboko\Contract\Bucket\AcceptanceResultBucketInterface;
+use Kiboko\Contract\Bucket as Contract;
 
-final class AcceptanceResultBucket implements AcceptanceResultBucketInterface
+/**
+ * @template Type
+ * @implements Contract\AcceptanceResultBucketInterface<Type>
+ */
+final class AcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
 {
-    /** @var array<mixed> */
-    private iterable $values;
+    /** @var array<int, Type> */
+    private array $values;
 
-    /**
-     * @param array<mixed> $values
-     */
+    /** @param Type ...$values */
     public function __construct(...$values)
     {
         $this->values = $values;
     }
 
     /**
-     * @param array<mixed> $values
+     * @param Type ...$values
+     * @return AcceptanceResultBucket<Type>
      */
     public function accept(...$values): self
     {
@@ -27,6 +30,7 @@ final class AcceptanceResultBucket implements AcceptanceResultBucketInterface
         return $this;
     }
 
+    /** @return iterable<Type> */
     public function walkAcceptance(): iterable
     {
         return new \ArrayIterator($this->values);
