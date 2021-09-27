@@ -1,0 +1,12 @@
+name: PHPSpec
+on: push
+  phpspec:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: php-actions/composer@v5
+        with:
+          args: --prefer-dist
+          php_version: 8.0
+      - name: PHP Spec
+        run: bin/phpspec run spec

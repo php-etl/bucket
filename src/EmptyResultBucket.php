@@ -5,9 +5,8 @@ namespace Kiboko\Component\Bucket;
 use Kiboko\Contract\Bucket as Contract;
 
 /**
- * @template Type
- * @implements Contract\AcceptanceResultBucketInterface<Type>
- * @implements Contract\RejectionResultBucketInterface<Type>
+ * @implements Contract\AcceptanceResultBucketInterface<void>
+ * @implements Contract\RejectionResultBucketInterface<void>
  */
 final class EmptyResultBucket implements
     Contract\AcceptanceResultBucketInterface,
