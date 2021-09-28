@@ -31,7 +31,11 @@
     },
     "require-dev": {
         "phpspec/phpspec": "^7.0",
-        "friends-of-phpspec/phpspec-code-coverage": "6.x-dev"
+        "friends-of-phpspec/phpspec-code-coverage": "6.x-dev",
+        "phpunit/phpunit": "^9.0",
+        "johnkary/phpunit-speedtrap": "*",
+        "mybuilder/phpunit-accelerator": "*",
+        "phpunit/php-invoker": "*"
     },
     "config": {
         "bin-dir": "bin"
