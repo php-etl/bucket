@@ -55,7 +55,7 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 public function walkAcceptance(): iterable
                 {
                     return new class implements \IteratorAggregate {
-                        public function getIterator()
+                        public function getIterator(): \Traversable
                         {
                             yield from [
                                 new \stdClass(),
@@ -68,7 +68,7 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 public function walkRejection(): iterable
                 {
                     return new class implements \IteratorAggregate {
-                        public function getIterator()
+                        public function getIterator(): \Traversable
                         {
                             yield from [
                                 new \stdClass(),
@@ -119,7 +119,7 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 public function walkAcceptance(): iterable
                 {
                     return new class implements \IteratorAggregate {
-                        public function getIterator()
+                        public function getIterator(): \Traversable
                         {
                             yield from [
                                 new \stdClass(),
@@ -132,7 +132,7 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 public function walkRejection(): iterable
                 {
                     return new class implements \IteratorAggregate {
-                        public function getIterator()
+                        public function getIterator(): \Traversable
                         {
                             yield from [
                                 new \stdClass(),
