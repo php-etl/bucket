@@ -1,3 +1,5 @@
 .idea/
 vendor/
 /.env
+/bin/
+/.php-cs-fixer.cache

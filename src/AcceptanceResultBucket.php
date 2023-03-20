@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\Bucket;
 
 use Kiboko\Contract\Bucket as Contract;
 
 /**
  * @template Type
+ *
  * @implements Contract\AcceptanceResultBucketInterface<Type>
  */
 final class AcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
@@ -21,6 +24,7 @@ final class AcceptanceResultBucket implements Contract\AcceptanceResultBucketInt
 
     /**
      * @param Type ...$values
+     *
      * @return AcceptanceResultBucket<Type>
      */
     public function accept(...$values): self

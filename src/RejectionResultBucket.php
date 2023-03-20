@@ -1,11 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\Bucket;
 
 use Kiboko\Contract\Bucket as Contract;
 
 /**
  * @template Type
+ *
  * @implements Contract\RejectionResultBucketInterface<Type>
  */
 final class RejectionResultBucket implements Contract\RejectionResultBucketInterface
@@ -21,6 +24,7 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
 
     /**
      * @param Type ...$values
+     *
      * @return RejectionResultBucket<Type>
      */
     public function reject(...$values): self

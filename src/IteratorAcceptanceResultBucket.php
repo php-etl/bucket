@@ -1,22 +1,21 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Kiboko\Component\Bucket;
 
 use Kiboko\Contract\Bucket as Contract;
 
 /**
  * @template Type
+ *
  * @implements Contract\AcceptanceResultBucketInterface<Type>
  */
-final class IteratorAcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
+final readonly class IteratorAcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
 {
-    /** @var \Iterator<Type> */
-    private \Iterator $iterator;
-
     /** @param \Iterator<Type> $iterator */
-    public function __construct(\Iterator $iterator)
+    public function __construct(private \Iterator $iterator)
     {
-        $this->iterator = $iterator;
     }
 
     /** @return iterable<Type> */
