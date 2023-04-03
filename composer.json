@@ -36,9 +36,6 @@
         "phpspec/phpspec": "^7.3"
     },
     "config": {
-        "bin-dir": "bin",
-        "allow-plugins": {
-            "infection/extension-installer": true
-        }
+        "bin-dir": "bin"
     }
 }
