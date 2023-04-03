@@ -17,7 +17,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.2",
-        "php-etl/bucket-contracts": "^0.2@dev"
+        "php-etl/bucket-contracts": "^0.2.0"
     },
     "autoload": {
         "psr-4": {
@@ -26,21 +26,15 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-main": "0.3.x-dev",
-            "dev-feature/qualityflow-improvments": "0.3.x-dev"
+            "dev-main": "0.3.x-dev"
         }
     },
     "require-dev": {
-        "phpspec/phpspec": "^7.0",
-        "friends-of-phpspec/phpspec-code-coverage": "6.x-dev",
-        "phpunit/phpunit": "^9.5 || ^10.0",
         "phpstan/phpstan": "^1.10",
         "friendsofphp/php-cs-fixer": "^3.0",
-        "infection/infection": "^0.26.18",
         "rector/rector": "^0.15",
-        "johnkary/phpunit-speedtrap": "*",
-        "mybuilder/phpunit-accelerator": "*",
-        "phpunit/php-invoker": "*"
+        "phpunit/phpunit": "^10.0",
+        "phpspec/phpspec": "*"
     },
     "config": {
         "bin-dir": "bin",
