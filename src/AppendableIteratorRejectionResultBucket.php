@@ -11,10 +11,10 @@ use Kiboko\Contract\Bucket as Contract;
  *
  * @implements Contract\RejectionResultBucketInterface<Type>
  */
-final class AppendableIteratorRejectionResultBucket implements Contract\RejectionResultBucketInterface
+final readonly class AppendableIteratorRejectionResultBucket implements Contract\RejectionResultBucketInterface
 {
     /** @var \AppendIterator<Type> */
-    private readonly \AppendIterator $iterator;
+    private \AppendIterator $iterator;
 
     /** @param \Iterator<Contract\RejectionResultBucketInterface<Type>> ...$iterators */
     public function __construct(\Iterator ...$iterators)
