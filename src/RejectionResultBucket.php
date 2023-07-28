@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Kiboko\Component\Bucket;
 
 use Kiboko\Contract\Bucket as Contract;
+use Kiboko\Contract\Pipeline\Rejection;
 
 /**
  * @template Type
@@ -17,7 +18,7 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
     private array $values;
 
     /** @param Type ...$values */
-    public function __construct(...$values)
+    public function __construct(Rejection|array ...$values)
     {
         $this->values = $values;
     }
@@ -27,7 +28,7 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
      *
      * @return RejectionResultBucket<Type>
      */
-    public function reject(...$values): self
+    public function reject(Rejection|array ...$values): self
     {
         array_push($this->values, ...$values);
 
