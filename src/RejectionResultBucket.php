@@ -18,8 +18,8 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
 
     /** @param Type ...$values */
     public function __construct(
-        private string $reason,
-        private \Throwable $exception,
+        private readonly string $reason,
+        private readonly \Throwable $exception,
         ...$values,
     ) {
         $this->values = array_values($values);

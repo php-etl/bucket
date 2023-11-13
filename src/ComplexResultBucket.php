@@ -49,9 +49,7 @@ final class ComplexResultBucket implements Contract\AcceptanceResultBucketInterf
     {
         return array_reduce(
             array_map(
-                function (Contract\RejectionResultBucketInterface $rejection): ?array {
-                    return $rejection->reasons();
-                },
+                fn(Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->reasons(),
                 $this->rejections
             ),
             function (array $carry, ?array $item): array {
@@ -68,9 +66,7 @@ final class ComplexResultBucket implements Contract\AcceptanceResultBucketInterf
     {
         return array_reduce(
             array_map(
-                function (Contract\RejectionResultBucketInterface $rejection): ?array {
-                    return $rejection->exceptions();
-                },
+                fn(Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->exceptions(),
                 $this->rejections
             ),
             function (array $carry, ?array $item): array {
