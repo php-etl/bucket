@@ -2,7 +2,7 @@ Bucket
 ===
 
 
-[![Quality (PHPStan lvl 4)](https://github.com/php-etl/bucket/actions/workflows/quality.yml/badge.svg)](https://github.com/php-etl/bucket/actions/workflows/quality.yml)
+[![Quality (PHPStan lvl 9)](https://github.com/php-etl/bucket/actions/workflows/quality.yml/badge.svg)](https://github.com/php-etl/bucket/actions/workflows/quality.yml)
 [![Infection](https://github.com/php-etl/bucket/actions/workflows/infection.yaml/badge.svg)](https://github.com/php-etl/bucket/actions/workflows/infection.yaml)
 [![PHPSpec](https://github.com/php-etl/bucket/actions/workflows/phpspec.yml/badge.svg)](https://github.com/php-etl/bucket/actions/workflows/phpspec.yml)
 ![PHP](https://img.shields.io/packagist/php-v/php-etl/bucket)
