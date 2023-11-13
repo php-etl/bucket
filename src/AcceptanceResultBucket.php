@@ -19,7 +19,7 @@ final class AcceptanceResultBucket implements Contract\AcceptanceResultBucketInt
     /** @param Type ...$values */
     public function __construct(...$values)
     {
-        $this->values = $values;
+        $this->values = array_values($values);
     }
 
     /**

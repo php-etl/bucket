@@ -13,12 +13,12 @@ use Kiboko\Contract\Bucket as Contract;
  */
 final readonly class IteratorAcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
 {
-    /** @param \Iterator<Type> $iterator */
-    public function __construct(private \Iterator $iterator)
-    {
-    }
+    /** @param \Iterator<int, Type> $iterator */
+    public function __construct(
+        private \Iterator $iterator
+    ) {}
 
-    /** @return iterable<Type> */
+    /** @return iterable<int, Type> */
     public function walkAcceptance(): iterable
     {
         return $this->iterator;
