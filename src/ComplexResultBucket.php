@@ -40,9 +40,47 @@ final class ComplexResultBucket implements Contract\AcceptanceResultBucketInterf
     }
 
     /** @param Type ...$values */
-    public function reject(...$values): void
+    public function reject(string $reason, \Throwable $exception, ...$values): void
     {
-        $this->rejections[] = new RejectionResultBucket(...$values);
+        $this->rejections[] = new RejectionResultBucket($reason, $exception, ...$values);
+    }
+
+    public function reasons(): ?array
+    {
+        return array_reduce(
+            array_map(
+                function (Contract\RejectionResultBucketInterface $rejection): ?array {
+                    return $rejection->reasons();
+                },
+                $this->rejections
+            ),
+            function (array $carry, ?array $item): array {
+                if ($item !== null) {
+                    array_push($carry, ...$item);
+                }
+                return $carry;
+            },
+            []
+        );
+    }
+
+    public function exceptions(): ?array
+    {
+        return array_reduce(
+            array_map(
+                function (Contract\RejectionResultBucketInterface $rejection): ?array {
+                    return $rejection->exceptions();
+                },
+                $this->rejections
+            ),
+            function (array $carry, ?array $item): array {
+                if ($item !== null) {
+                    array_push($carry, ...$item);
+                }
+                return $carry;
+            },
+            []
+        );
     }
 
     public function walkAcceptance(): iterable

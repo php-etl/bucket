@@ -10,13 +10,15 @@ use Kiboko\Contract\Bucket as Contract;
  * @template Type
  *
  * @implements Contract\RejectionResultBucketInterface<Type>
+ *
+ * @deprecated This class is too complex and breaks the Least-surprise principle.
  */
 final readonly class AppendableIteratorRejectionResultBucket implements Contract\RejectionResultBucketInterface
 {
-    /** @var \AppendIterator<Type> */
+    /** @var \AppendIterator<int, Type, \Iterator<int, Contract\RejectionResultBucketInterface<Type>>> */
     private \AppendIterator $iterator;
 
-    /** @param \Iterator<Contract\RejectionResultBucketInterface<Type>> ...$iterators */
+    /** @param \Iterator<int, Contract\RejectionResultBucketInterface<Type>> ...$iterators */
     public function __construct(\Iterator ...$iterators)
     {
         $this->iterator = new \AppendIterator();
@@ -25,7 +27,17 @@ final readonly class AppendableIteratorRejectionResultBucket implements Contract
         }
     }
 
-    /** @param \Iterator<Contract\RejectionResultBucketInterface<Type>> ...$iterators */
+    public function reasons(): ?array
+    {
+        return null;
+    }
+
+    public function exceptions(): ?array
+    {
+        return null;
+    }
+
+    /** @param \Iterator<int, Contract\RejectionResultBucketInterface<Type>> ...$iterators */
     public function append(\Iterator ...$iterators): void
     {
         foreach ($iterators as $iterator) {
