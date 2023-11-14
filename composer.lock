@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "559eca41ad518ff590952c47d1a34789",
+    "content-hash": "753f20ea7c9a364d35b79472eca64e39",
     "packages": [
         {
             "name": "php-etl/bucket-contracts",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-etl/bucket-contracts.git",
-                "reference": "f597d4a5ed6cd36c48923baaf16df7f63f24f484"
+                "reference": "b9595871228a1c41e9da9c6d9e883a28123f4a10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-etl/bucket-contracts/zipball/f597d4a5ed6cd36c48923baaf16df7f63f24f484",
-                "reference": "f597d4a5ed6cd36c48923baaf16df7f63f24f484",
+                "url": "https://api.github.com/repos/php-etl/bucket-contracts/zipball/b9595871228a1c41e9da9c6d9e883a28123f4a10",
+                "reference": "b9595871228a1c41e9da9c6d9e883a28123f4a10",
                 "shasum": ""
             },
             "require": {
@@ -59,7 +59,7 @@
                 "issues": "https://github.com/php-etl/bucket-contracts/issues",
                 "source": "https://github.com/php-etl/bucket-contracts/tree/main"
             },
-            "time": "2023-11-13T15:20:45+00:00"
+            "time": "2023-11-14T08:49:46+00:00"
         }
     ],
     "packages-dev": [
