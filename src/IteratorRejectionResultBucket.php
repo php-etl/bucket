@@ -16,7 +16,7 @@ final readonly class IteratorRejectionResultBucket implements Contract\Rejection
     /** @param \Iterator<int, Type> $iterator */
     public function __construct(
         private string $reason,
-        private \Throwable $exception,
+        private ?\Throwable $exception,
         private \Iterator $iterator,
     ) {}
 
@@ -27,6 +27,9 @@ final readonly class IteratorRejectionResultBucket implements Contract\Rejection
 
     public function exceptions(): ?array
     {
+        if ($this->exception === null) {
+            return null;
+        }
         return [$this->exception];
     }
 
