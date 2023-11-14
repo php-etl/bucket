@@ -7,7 +7,7 @@ namespace Kiboko\Component\Bucket;
 use Kiboko\Contract\Bucket as Contract;
 
 /**
- * @template Type of non-empty-array<array-key, mixed>|object
+ * @template Type
  *
  * @implements Contract\ResultBucketInterface<Type>
  */
