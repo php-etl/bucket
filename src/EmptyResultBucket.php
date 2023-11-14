@@ -7,8 +7,10 @@ namespace Kiboko\Component\Bucket;
 use Kiboko\Contract\Bucket as Contract;
 
 /**
- * @implements Contract\AcceptanceResultBucketInterface<mixed>
- * @implements Contract\RejectionResultBucketInterface<mixed>
+ * @template Type of non-empty-array<array-key, mixed>|object
+ *
+ * @implements Contract\AcceptanceResultBucketInterface<Type>
+ * @implements Contract\RejectionResultBucketInterface<Type>
  */
 final class EmptyResultBucket implements Contract\AcceptanceResultBucketInterface, Contract\RejectionResultBucketInterface
 {
