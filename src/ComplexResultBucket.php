@@ -49,13 +49,14 @@ final class ComplexResultBucket implements Contract\AcceptanceResultBucketInterf
     {
         return array_reduce(
             array_map(
-                fn(Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->reasons(),
+                fn (Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->reasons(),
                 $this->rejections
             ),
             function (array $carry, ?array $item): array {
-                if ($item !== null) {
+                if (null !== $item) {
                     array_push($carry, ...$item);
                 }
+
                 return $carry;
             },
             []
@@ -66,13 +67,14 @@ final class ComplexResultBucket implements Contract\AcceptanceResultBucketInterf
     {
         return array_reduce(
             array_map(
-                fn(Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->exceptions(),
+                fn (Contract\RejectionResultBucketInterface $rejection): ?array => $rejection->exceptions(),
                 $this->rejections
             ),
             function (array $carry, ?array $item): array {
-                if ($item !== null) {
+                if (null !== $item) {
                     array_push($carry, ...$item);
                 }
+
                 return $carry;
             },
             []

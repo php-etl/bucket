@@ -11,7 +11,7 @@ use Kiboko\Contract\Bucket as Contract;
  *
  * @implements Contract\AcceptanceResultBucketInterface<Type>
  *
- * @deprecated This class is too complex and breaks the Least-surprise principle.
+ * @deprecated this class is too complex and breaks the Least-surprise principle
  */
 final readonly class AppendableIteratorAcceptanceResultBucket implements Contract\AcceptanceResultBucketInterface
 {
