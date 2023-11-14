@@ -27,9 +27,11 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 new \stdClass()
             ),
             new RejectionResultBucket(
+                'Lorem ipsum dolor sit amet',
+                new \Exception('Lorem ipsum dolor sit amet'),
                 new \stdClass(),
                 new \stdClass(),
-                new \stdClass()
+                new \stdClass(),
             ),
             new AcceptanceResultBucket(
                 new \stdClass()
@@ -49,6 +51,16 @@ class ComplexResultBucketSpec extends ObjectBehavior
                         new \stdClass(),
                         new \stdClass()
                     ];
+                }
+
+                public function reasons(): ?array
+                {
+                    return null;
+                }
+
+                public function exceptions(): ?array
+                {
+                    return null;
                 }
             },
             new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
@@ -76,6 +88,16 @@ class ComplexResultBucketSpec extends ObjectBehavior
                             ];
                         }
                     };
+                }
+
+                public function reasons(): ?array
+                {
+                    return null;
+                }
+
+                public function exceptions(): ?array
+                {
+                    return null;
                 }
             }
         );
@@ -87,6 +109,8 @@ class ComplexResultBucketSpec extends ObjectBehavior
     {
         $this->beConstructedWith(
             new RejectionResultBucket(
+                'Lorem ipsum dolor sit amet',
+                new \Exception('Lorem ipsum dolor sit amet'),
                 new \stdClass(),
                 new \stdClass()
             ),
@@ -96,6 +120,8 @@ class ComplexResultBucketSpec extends ObjectBehavior
                 new \stdClass()
             ),
             new RejectionResultBucket(
+                'Lorem ipsum dolor sit amet',
+                new \Exception('Lorem ipsum dolor sit amet'),
                 new \stdClass()
             ),
             new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
@@ -113,6 +139,16 @@ class ComplexResultBucketSpec extends ObjectBehavior
                         new \stdClass(),
                         new \stdClass()
                     ];
+                }
+
+                public function reasons(): ?array
+                {
+                    return null;
+                }
+
+                public function exceptions(): ?array
+                {
+                    return null;
                 }
             },
             new class implements AcceptanceResultBucketInterface, RejectionResultBucketInterface {
@@ -140,6 +176,16 @@ class ComplexResultBucketSpec extends ObjectBehavior
                             ];
                         }
                     };
+                }
+
+                public function reasons(): ?array
+                {
+                    return null;
+                }
+
+                public function exceptions(): ?array
+                {
+                    return null;
                 }
             }
         );
@@ -162,6 +208,8 @@ class ComplexResultBucketSpec extends ObjectBehavior
     function it_can_reject_values()
     {
         $this->reject(
+            'Lorem ipsum dolor sit amet',
+            new \Exception('Lorem ipsum dolor sit amet'),
             new \stdClass(),
             new \stdClass(),
             new \stdClass()

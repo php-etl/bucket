@@ -11,7 +11,11 @@ class IteratorRejectionResultBucketSpec extends ObjectBehavior
 {
     function it_is_initializable()
     {
-        $this->beConstructedWith(new \EmptyIterator());
+        $this->beConstructedWith(
+            'Lorem ipsum dolor sit amet',
+            new \Exception('Lorem ipsum dolor sit amet'),
+            new \EmptyIterator()
+        );
 
         $this->shouldHaveType(IteratorRejectionResultBucket::class);
         $this->shouldBeAnInstanceOf(RejectionResultBucketInterface::class);
@@ -20,6 +24,8 @@ class IteratorRejectionResultBucketSpec extends ObjectBehavior
     function it_has_non_empty_rejection()
     {
         $this->beConstructedWith(
+            'Lorem ipsum dolor sit amet',
+            new \Exception('Lorem ipsum dolor sit amet'),
             new \ArrayIterator([
                 new \stdClass(),
                 new \stdClass(),
