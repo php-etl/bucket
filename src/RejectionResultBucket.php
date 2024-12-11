@@ -18,7 +18,7 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
 
     /** @param Type ...$values */
     public function __construct(
-        private readonly string $reason,
+        private readonly ?string $reason,
         private readonly ?\Throwable $exception,
         ...$values,
     ) {
