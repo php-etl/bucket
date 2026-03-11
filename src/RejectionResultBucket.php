@@ -27,7 +27,7 @@ final class RejectionResultBucket implements Contract\RejectionResultBucketInter
 
     public function reasons(): ?array
     {
-        return [$this->reason];
+        return $this->reason !== null ? [$this->reason] : null;
     }
 
     public function exceptions(): ?array
